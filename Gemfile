@@ -17,6 +17,8 @@ group :test, :development do
   gem 'guard-rspec', '0.4.4'
   gem 'rb-inotify'
   gem 'libnotify'
+  gem 'spork', '0.9.0.rc9'
+  gem 'guard-spork', '0.2.1'
 end
 
 group :test do
