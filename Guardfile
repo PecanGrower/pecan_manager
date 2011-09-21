@@ -7,14 +7,12 @@ guard 'spork', :bundler => false, :wait => 30 do
   watch(%r{^config/environments/.*\.rb$})
   watch(%r{^config/initializers/.*\.rb$})
   watch('spec/spec_helper.rb')
+  watch('spec/factories.rb')
+  watch('config/routes.rb')
 end
 
-guard 'rspec', :cli => "--drb", :bundler => false, :version => 2 do
-  watch(%r{^spec/.+_spec\.rb$})
-  watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
-  watch('spec/spec_helper.rb')  { "spec/" }
-
-  # Rails example
+guard 'rspec', :cli => "--drb", :bundler => false do
+  # Rails
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^app/(.+)\.rb$})                           { |m| "spec/#{m[1]}_spec.rb" }
   watch(%r{^lib/(.+)\.rb$})                           { |m| "spec/lib/#{m[1]}_spec.rb" }
